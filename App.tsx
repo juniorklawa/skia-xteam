@@ -1,55 +1,24 @@
-import {
-  Canvas,
-  Fill,
-  Image,
-  RoundedRect,
-  useFont,
-  useImage,
-  Text,
-  Group,
-  Circle,
-  SweepGradient,
-  BlurMask,
-  Rect,
-  vec,
-  Paint,
-  rect,
-  rrect,
-  Box,
-  BoxShadow,
-  BackdropBlur,
-  mix,
-  useLoop,
-  useValue,
-  useTouchHandler,
-} from "@shopify/react-native-skia";
-import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import {
-  Dimensions,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  View,
-} from "react-native";
-import Blend from "./features/Blend";
-import Glass from "./features/Glass";
+import AnimationScreen from "./screens/AnimationScreen";
+import GestureScreen from "./screens/GestureScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ShapesScreen from "./screens/ShapesScreen";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: "#ffffff", marginTop: 24 }}
-    >
-      <ScrollView>
-        <Glass />
-        <Blend />
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="AnimationScreen" component={AnimationScreen} />
+        <Stack.Screen name="GestureScreen" component={GestureScreen} />
+        <Stack.Screen name="ShapesScreen" component={ShapesScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+export default App;

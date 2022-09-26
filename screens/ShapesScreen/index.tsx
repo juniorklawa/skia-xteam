@@ -1,34 +1,24 @@
 import Slider from "@react-native-community/slider";
 import {
   BackdropBlur,
-  Box,
-  BoxShadow,
   Canvas,
   Fill,
   Group,
   Image,
-  Rect,
   rect,
-  RoundedRect,
   rrect,
   useFont,
   useImage,
-  useTouchHandler,
   useValue,
   vec,
 } from "@shopify/react-native-skia";
 import React from "react";
-import { Dimensions, View, Text } from "react-native";
+import { Dimensions, Text, View } from "react-native";
 
-const Glass = () => {
-  const window = Dimensions.get("window");
+const ShapesScreen = () => {
   const { width, height } = Dimensions.get("window");
 
   const michael = useImage(require("../../assets/michael.jpg"));
-
-  const font = useFont(require("../../assets/fonts/Roboto-Regular.ttf"), 24);
-
-  const center = vec(width / 2 - 50, height / 2 - 100);
 
   const blurClipPath = rrect(rect(22, 80, width - 48, 200), 12, 12);
 
@@ -43,7 +33,7 @@ const Glass = () => {
           fontSize: 32,
         }}
       >
-        Glass Effect
+        ShapesScreen Effect
       </Text>
       <Canvas style={{ height: 300 }}>
         <Group>
@@ -106,4 +96,4 @@ const Glass = () => {
   );
 };
 
-export default Glass;
+export default ShapesScreen;
