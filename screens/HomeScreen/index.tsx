@@ -1,12 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import {
-  Button,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Button, SafeAreaView, StyleSheet, View } from "react-native";
 
 export default function App() {
   type NavType = {
@@ -38,6 +32,11 @@ export default function App() {
         <Button
           onPress={() => navigation.navigate("AnimationScreen")}
           title="Animations"
+        />
+        <View style={{ height: 8 }} />
+        <Button
+          onPress={() => navigation.navigate("MatrixScreen")}
+          title="Matrix"
         />
       </View>
     </SafeAreaView>
